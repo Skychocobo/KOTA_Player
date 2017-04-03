@@ -1,0 +1,6 @@
+framework module Pods_KOTA_Player {
+  umbrella header "Pods-KOTA_Player-umbrella.h"
+
+  export *
+  module * { export * }
+}

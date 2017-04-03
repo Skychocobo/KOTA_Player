@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "instrument"; ObjectID = "2Kk-Ua-9Eh"; */
+"2Kk-Ua-9Eh.text" = "instrument";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Cej-3z-ufG"; */
+"Cej-3z-ufG.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Mrw-fy-r40"; */
+"Mrw-fy-r40.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "genre"; ObjectID = "NCm-vB-FWG"; */
+"NCm-vB-FWG.text" = "genre";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "etH-wO-GHv"; */
+"etH-wO-GHv.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "iTZ-Xk-fuZ"; */
+"iTZ-Xk-fuZ.normalTitle" = "Login";
