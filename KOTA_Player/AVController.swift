@@ -16,6 +16,8 @@ class AVController: UIViewController {
     var playButton:UIButton?
     var playbackSlider:UISlider?
     
+    var playerItemName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,7 +25,11 @@ class AVController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let url = URL(string: "http://ocarinamr.com/upload/app/SC_app.mp3")
+        self.playerItemName = SharingManager.sharedInstance.fileName
+        
+        print(playerItemName)
+        
+        let url = URL(string: "http://ocarinamr.com/upload/app/"+playerItemName)
         let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
         
@@ -102,5 +108,4 @@ class AVController: UIViewController {
             playButton!.setTitle("Play", for: UIControlState.normal)
         }
     }
-    
 }

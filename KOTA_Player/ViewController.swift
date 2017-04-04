@@ -206,6 +206,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print((arrRes[indexPath.row])["idx"]!)
+        SharingManager.sharedInstance.fileName = (arrRes[indexPath.row])["solo_normal"]! as! String
         
     }
 
@@ -213,6 +214,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
 
