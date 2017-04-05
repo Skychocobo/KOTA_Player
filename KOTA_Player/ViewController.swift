@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let cellReuseIdentifier = "cell"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -128,7 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             alertController.addAction(MessageAction)
                             self.present(alertController, animated: true, completion: nil)
                             print("result:\(resultValue)")
-
+                            
                         }
                         
                     }
@@ -191,7 +191,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : TableViewCell = tableView.dequeueReusableCell(withIdentifier: "jsonCell") as! TableViewCell
-
+        
         var dict = arrRes[(indexPath as NSIndexPath).row]
         
         cell.listTitle.text = dict["title"] as? String
@@ -205,14 +205,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print((arrRes[indexPath.row])["idx"]!)
-        SharingManager.sharedInstance.fileName = (arrRes[indexPath.row])["solo_normal"]! as! String
+        
+        
+        let fileTitle = (arrRes[indexPath.row])["title"]! as! String
+        
+        print(fileTitle)
+        
+        let imgName = (arrRes[indexPath.row])["solo_musicreg"]! as! String
+        //let reImgName = imgName.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        
+        let fileName = (arrRes[indexPath.row])["solo_normal"]! as! String
+        //let reFileName = fileName.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        
+        SharingManager.sharedInstance.fileTitle = fileTitle
+        SharingManager.sharedInstance.fileName = fileName
+        SharingManager.sharedInstance.imgName = imgName
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
-

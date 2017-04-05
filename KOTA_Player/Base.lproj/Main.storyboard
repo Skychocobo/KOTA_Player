@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -111,26 +112,56 @@
                         <viewControllerLayoutGuide type="bottom" id="nzX-rf-aUh"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="R5R-t1-2ta">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-fy-r40">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-fy-r40">
                                 <rect key="frame" x="20" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="&lt; 이전"/>
                                 <connections>
                                     <segue destination="uUs-E1-vEl" kind="presentation" id="WET-BE-i27"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="playback" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="sQM-M5-iv3">
+                                <rect key="frame" x="16" y="58" width="343" height="531"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdN-Va-RBV">
+                                        <rect key="frame" x="0.0" y="1" width="343" height="530"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsP-im-hEQ">
+                                <rect key="frame" x="77" y="20" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mrw-fy-r40" firstAttribute="leading" secondItem="R5R-t1-2ta" secondAttribute="leadingMargin" constant="4" id="4QS-xx-3QD"/>
+                            <constraint firstItem="sQM-M5-iv3" firstAttribute="trailing" secondItem="R5R-t1-2ta" secondAttribute="trailingMargin" id="BZH-ry-Fyu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NsP-im-hEQ" secondAttribute="trailing" constant="62" id="PRR-sW-cm3"/>
+                            <constraint firstItem="Mrw-fy-r40" firstAttribute="top" secondItem="NsP-im-hEQ" secondAttribute="top" id="SAC-p5-AX5"/>
+                            <constraint firstItem="sQM-M5-iv3" firstAttribute="top" secondItem="Mrw-fy-r40" secondAttribute="bottom" constant="8" symbolic="YES" id="Y4U-29-wcW"/>
+                            <constraint firstItem="Mrw-fy-r40" firstAttribute="top" secondItem="zMS-rr-X0o" secondAttribute="bottom" id="a62-OM-KMc"/>
+                            <constraint firstItem="sQM-M5-iv3" firstAttribute="leading" secondItem="R5R-t1-2ta" secondAttribute="leadingMargin" id="dmU-LC-anI"/>
+                            <constraint firstItem="nzX-rf-aUh" firstAttribute="top" secondItem="sQM-M5-iv3" secondAttribute="bottom" constant="78" id="fJJ-52-u4h"/>
+                            <constraint firstItem="NsP-im-hEQ" firstAttribute="leading" secondItem="Mrw-fy-r40" secondAttribute="trailing" constant="11" id="ku0-jb-M1G"/>
+                            <constraint firstItem="NsP-im-hEQ" firstAttribute="centerX" secondItem="sQM-M5-iv3" secondAttribute="centerX" id="zLh-xE-6he"/>
+                        </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="fileTitle" destination="NsP-im-hEQ" id="exI-ka-xJO"/>
+                        <outlet property="img" destination="YdN-Va-RBV" id="KSa-Df-icM"/>
+                        <outlet property="scrollView" destination="sQM-M5-iv3" id="dhs-Cq-GUJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuZ-LY-CH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="922"/>
+            <point key="canvasLocation" x="2053.5999999999999" y="921.58920539730138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zbw-xg-hkv">

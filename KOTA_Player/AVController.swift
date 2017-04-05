@@ -11,12 +11,18 @@ import AVFoundation
 
 class AVController: UIViewController {
     
+    @IBOutlet weak var fileTitle: UILabel!
+    
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
     var playButton:UIButton?
     var playbackSlider:UISlider?
     
     var playerItemName = ""
+    var playerImgName = ""
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var img: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +31,19 @@ class AVController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.fileTitle.text = SharingManager.sharedInstance.fileTitle
+        
         self.playerItemName = SharingManager.sharedInstance.fileName
+        self.playerImgName = SharingManager.sharedInstance.imgName
         
-        print(playerItemName)
+        let imgUrl = URL(string: "http://ocarinamr.com/upload/app/"+playerImgName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        let imgData = try? Data(contentsOf: imgUrl!)
+        img.image = UIImage(data: imgData!)
         
-        let url = URL(string: "http://ocarinamr.com/upload/app/"+playerItemName)
+        self.automaticallyAdjustsScrollViewInsets = true
+        
+        let url = URL(string: "http://ocarinamr.com/upload/app/"+playerItemName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
         let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
         
@@ -39,7 +53,7 @@ class AVController: UIViewController {
         
         playButton = UIButton(type: UIButtonType.system) as UIButton
         let xPostion:CGFloat = 50
-        let yPostion:CGFloat = 100
+        let yPostion:CGFloat = 300
         let buttonWidth:CGFloat = 150
         let buttonHeight:CGFloat = 45
         
@@ -55,7 +69,7 @@ class AVController: UIViewController {
         
         // Add playback slider
         
-        playbackSlider = UISlider(frame:CGRect(x: 10, y: 300, width: 300, height: 20))
+        playbackSlider = UISlider(frame:CGRect(x: (self.view.frame.size.width/2)-150, y: 300, width: 300, height: 20))
         playbackSlider!.minimumValue = 0
         
         
@@ -63,12 +77,16 @@ class AVController: UIViewController {
         let seconds : Float64 = CMTimeGetSeconds(duration)
         
         playbackSlider!.maximumValue = Float(seconds)
-        playbackSlider!.isContinuous = false
+        playbackSlider!.isContinuous = true
         playbackSlider!.tintColor = UIColor.green
         
         playbackSlider?.addTarget(self, action: #selector(AVController.playbackSliderValueChanged(_:)), for: .valueChanged)
         //playbackSlider!.addTarget(self, action: "playbackSliderValueChanged:", for: .valueChanged)
         self.view.addSubview(playbackSlider!)
+        
+        UIView.animate(withDuration: seconds) {
+            self.img.center.y -= self.view.bounds.height
+        }
         
         
         player!.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
@@ -77,6 +95,11 @@ class AVController: UIViewController {
                 self.playbackSlider!.value = Float ( time );
             }
         }
+        
+        player!.play()
+        player!.rate = 1
+        playButton!.setTitle("Pause", for: UIControlState.normal)
+        
         
     }
     
@@ -108,4 +131,9 @@ class AVController: UIViewController {
             playButton!.setTitle("Play", for: UIControlState.normal)
         }
     }
+    
+    @IBAction func forword(_ sender: UIButton, forEvent event: UIEvent) {
+        player!.pause()
+    }
+    
 }
