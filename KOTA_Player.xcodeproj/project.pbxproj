@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D099E141DC19695004B8948 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D099E121DC19695004B8948 /* User+CoreDataClass.swift */; };
 		0D099E151DC19695004B8948 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D099E131DC19695004B8948 /* User+CoreDataProperties.swift */; };
+		0D1D4F061E9F70D900E29BFC /* CellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D4F051E9F70D900E29BFC /* CellClass.swift */; };
+		0D1D4F081E9F712400E29BFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D4F071E9F712400E29BFC /* ViewController.swift */; };
 		0D6AB2271DC18FFF0063F47E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AB2261DC18FFF0063F47E /* AppDelegate.swift */; };
-		0D6AB2291DC18FFF0063F47E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AB2281DC18FFF0063F47E /* ViewController.swift */; };
+		0D6AB2291DC18FFF0063F47E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AB2281DC18FFF0063F47E /* TableViewController.swift */; };
 		0D6AB22C1DC18FFF0063F47E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6AB22A1DC18FFF0063F47E /* Main.storyboard */; };
 		0D6AB22F1DC18FFF0063F47E /* KOTA_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AB22D1DC18FFF0063F47E /* KOTA_Player.xcdatamodeld */; };
 		0D6AB2311DC18FFF0063F47E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6AB2301DC18FFF0063F47E /* Assets.xcassets */; };
@@ -44,9 +46,11 @@
 		097E15E2F1A6126BA1AFE633 /* Pods_KOTA_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KOTA_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D099E121DC19695004B8948 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D099E131DC19695004B8948 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D1D4F051E9F70D900E29BFC /* CellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellClass.swift; sourceTree = "<group>"; };
+		0D1D4F071E9F712400E29BFC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D6AB2231DC18FFE0063F47E /* KOTA_Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KOTA_Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6AB2261DC18FFF0063F47E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D6AB2281DC18FFF0063F47E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D6AB2281DC18FFF0063F47E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0D6AB22B1DC18FFF0063F47E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D6AB22E1DC18FFF0063F47E /* KOTA_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KOTA_Player.xcdatamodel; sourceTree = "<group>"; };
 		0D6AB2301DC18FFF0063F47E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,10 +125,12 @@
 			isa = PBXGroup;
 			children = (
 				0D6AB2261DC18FFF0063F47E /* AppDelegate.swift */,
-				0D6AB2281DC18FFF0063F47E /* ViewController.swift */,
+				0D6AB2281DC18FFF0063F47E /* TableViewController.swift */,
+				0D1D4F071E9F712400E29BFC /* ViewController.swift */,
 				0DF1972B1DC1AE7400DA5445 /* TableViewCell.swift */,
 				0D9268E81DC994F70068CB99 /* AVController.swift */,
 				DEA625FA1E942A9E0037D0D8 /* SharingManager.swift */,
+				0D1D4F051E9F70D900E29BFC /* CellClass.swift */,
 				0D6AB22A1DC18FFF0063F47E /* Main.storyboard */,
 				0D6AB2301DC18FFF0063F47E /* Assets.xcassets */,
 				0D6AB2321DC18FFF0063F47E /* LaunchScreen.storyboard */,
@@ -357,9 +363,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D6AB2291DC18FFF0063F47E /* ViewController.swift in Sources */,
+				0D6AB2291DC18FFF0063F47E /* TableViewController.swift in Sources */,
 				0D6AB22F1DC18FFF0063F47E /* KOTA_Player.xcdatamodeld in Sources */,
 				0D099E141DC19695004B8948 /* User+CoreDataClass.swift in Sources */,
+				0D1D4F061E9F70D900E29BFC /* CellClass.swift in Sources */,
+				0D1D4F081E9F712400E29BFC /* ViewController.swift in Sources */,
 				0DF1972C1DC1AE7400DA5445 /* TableViewCell.swift in Sources */,
 				0D099E151DC19695004B8948 /* User+CoreDataProperties.swift in Sources */,
 				0D9268E91DC994F70068CB99 /* AVController.swift in Sources */,
