@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"]
+    var items = ["앙상블 동영상", "UCC 동영상", "오카리나 콘서트", "운지법", "CCM", "복음성가", "팬플룻", "팬플룻 동영상", "7중주", "2중주", "Fake", "독주", "휘슬", "휘슬 동영상", "공연안내", "동영상 강의", "찬송가/7중주", "찬송가/4중주", "찬송가/2중주", "찬송가/독주", "회원관리", "오카리나 교본", "진행사업", "연주자소개", "강사소개"]
     
     
     // MARK: - UICollectionViewDataSource protocol
@@ -39,5 +39,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        if indexPath.item == 0 {
+            print("yogi")
+            
+        }
+        
     }
 }
