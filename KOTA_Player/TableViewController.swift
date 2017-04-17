@@ -16,8 +16,8 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet var tblJSON: UITableView!
     
-    var userID = ""
-    var userGrade = ""
+    var userID = "G"
+    var userGrade = 0
     var userName = ""
     var listURL = "https://www.ocarinafestival.kr"
     var arrRes = [[String:AnyObject]]() //Array of dictionary
@@ -35,7 +35,7 @@ class TableViewController: UITableViewController {
             for i in 0..<objects.count {
                 let match = objects[i] as! NSManagedObject
                 userID = match.value(forKey: "id") as! String
-                userGrade = match.value(forKey: "grade") as! String
+                userGrade = match.value(forKey: "grade") as! Int
                 userName = match.value(forKey: "name") as! String
             }
             self.loginBtn.setTitle(userName, for: .normal)
@@ -46,7 +46,7 @@ class TableViewController: UITableViewController {
     //로그인 버튼
     @IBAction func loginBtn(_ sender: AnyObject) {
         
-        if userGrade.isEmpty {
+        if userID == "G" {
             loginChecker()
         } else {
             logoutChecker()
@@ -157,7 +157,7 @@ class TableViewController: UITableViewController {
         
         user.id = String(describing: userID = "")
         user.name = String(describing: userName = "")
-        user.grade = String(describing: userGrade = "")
+        user.grade = Int(describing: userGrade = 0)
         
         self.loginBtn.setTitle("Login", for: .normal)
         

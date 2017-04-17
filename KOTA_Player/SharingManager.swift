@@ -10,5 +10,8 @@ class SharingManager {
     var fileTitle:String = ""
     var fileName:String = ""
     var imgName:String = ""
+    var userID:String = "G"
+    var userName:String = ""
+    var userGrade:Int = 0
     static let sharedInstance = SharingManager()
 }

@@ -17,7 +17,7 @@ extension User {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var grade: String?
+    @NSManaged public var grade: Int?
     @NSManaged public var name: String?
 
 }
