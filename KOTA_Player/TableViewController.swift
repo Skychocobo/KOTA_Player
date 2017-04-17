@@ -113,7 +113,7 @@ class TableViewController: UITableViewController {
                             
                             self.userID = ID
                             self.userName = parsenJSON["name"] as! String
-                            self.userGrade = parsenJSON["grade_id"] as! String
+                            self.userGrade = parsenJSON["grade_id"] as! Int
                             
                             user.id = self.userID
                             user.name = self.userName
@@ -157,7 +157,7 @@ class TableViewController: UITableViewController {
         
         user.id = String(describing: userID = "")
         user.name = String(describing: userName = "")
-        user.grade = Int(describing: userGrade = 0)
+        user.grade = 0
         
         self.loginBtn.setTitle("Login", for: .normal)
         
